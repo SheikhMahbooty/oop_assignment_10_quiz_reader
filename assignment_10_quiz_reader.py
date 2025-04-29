@@ -22,13 +22,13 @@ if len(quiz_data) == 0:
     print("No questions inputted.")
 else:
     while True:
-        print(f"{len(quiz_data)} questions are available.")
+        print(f"\n{len(quiz_data)} questions are available.")
         num_questions = int(input(f"How many questions would you like to answer? (Max: {len(quiz_data)}): "))
         num_questions = min(num_questions, len(quiz_data))
         score = 0
         selected_questions = random.sample(quiz_data, num_questions) #randomize the questions
 
-        #enumarate the options 
+        #enumerate the options 
         for current_question in selected_questions:
             print("\n" + current_question[0])
             choice_labels = ["A", "B", "C", "D"]
