@@ -3,8 +3,8 @@
 file = open("quiz_questions.txt", "r")
 f = file.readlines()
 #print the quiz questions randomly
-for line in f:
-    print(line.strip())
+for i in range(5):
+    print(f[i].strip())
 #user inputs answer
 #check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
