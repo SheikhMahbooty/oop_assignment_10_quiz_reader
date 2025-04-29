@@ -39,7 +39,7 @@ while True:
     quiz_file.write(f"{answer_b}\n")
     quiz_file.write(f"{answer_c}\n")
     quiz_file.write(f"{answer_d}\n")
-    quiz_file.write(f"{correct_ans}\n\n")
+    quiz_file.write(f"{correct_ans}\n")
 
 #Print the question and answers to the shell for easier access
     print("\nThe inputted question is: ",input_question)
