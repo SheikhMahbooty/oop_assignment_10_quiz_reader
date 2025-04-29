@@ -34,12 +34,12 @@ while True:
             correct_ans = print("\nInvalid input, enter a,b,c,d")
 
 #Write the text within the txt file
-    quiz_file.write(f"Question: {input_question}\n")
+    quiz_file.write(f"{input_question}\n")
     quiz_file.write(f"a) {answer_a}\n")
     quiz_file.write(f"b) {answer_b}\n")
     quiz_file.write(f"c) {answer_c}\n")
     quiz_file.write(f"d) {answer_d}\n")
-    quiz_file.write(f"Correct Answer: {correct_ans}\n\n")
+    quiz_file.write(f"{correct_ans}\n\n")
 
 #Print the question and answers to the shell for easier access
     print("\nThe inputted question is: ",input_question)
