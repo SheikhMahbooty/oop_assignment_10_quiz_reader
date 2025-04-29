@@ -22,7 +22,7 @@ else:
         print(f"{len(quiz)} questions are available.")
         num = int(input(f"How many questions would you like to answer? (Max: {len(quiz)}): "))
         num = min(num, len(quiz))
-        
+        score = 0
         asked = random.sample(quiz, num)
         for q in asked:
             print(q[0])
@@ -34,6 +34,13 @@ else:
                 if answer in letters:
                     break
                 print("Invalid input. Please enter A, B, C, or D.")
+            index = letters.index(answer)
+            if q[1][index] == q[2]:
+                print("Correct!\n")
+                score += 1
+            else:
+                print(f"Wrong! The correct answer was: {q[2]}")
+        print(f"You got {score} out of {num} correct!")
 
 #check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
