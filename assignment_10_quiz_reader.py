@@ -2,8 +2,9 @@
 #read the text file from the original quiz creator
 file = open("quiz_questions.txt", "r")
 f = file.readlines()
-print(f)
 #print the quiz questions randomly
+for line in f:
+    print(line.strip())
 #user inputs answer
 #check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
