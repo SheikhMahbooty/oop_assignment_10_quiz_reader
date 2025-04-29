@@ -30,7 +30,7 @@ else:
 
         #enumarate the options 
         for q in asked:
-            print(q[0])
+            print("\n" + q[0])
             letters = ["A", "B", "C", "D"]
             for i, opt in enumerate(q[1]):
                 print(f"{letters[i]}) {opt}")
