@@ -29,6 +29,11 @@ else:
             letters = ["A", "B", "C", "D"]
             for i, opt in enumerate(q[1]):
                 print(f"{letters[i]}) {opt}")
+            while True:
+                answer = input("\nEnter the correct answer (A/B/C/D): ").strip().upper()
+                if answer in letters:
+                    break
+                print("Invalid input. Please enter A, B, C, or D.")
 
 #check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
