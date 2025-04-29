@@ -24,7 +24,11 @@ else:
         num = min(num, len(quiz))
         
         asked = random.sample(quiz, num)
-        print(asked)
+        for q in asked:
+            print(q[0])
+            letters = ["A", "B", "C", "D"]
+            for i, opt in enumerate(q[1]):
+                print(f"{letters[i]}) {opt}")
 
 #check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
