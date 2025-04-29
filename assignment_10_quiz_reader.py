@@ -13,14 +13,14 @@ for i in range(0, len(f), 6):
         option4 = f[i+4]
         correct = f[i+5]
         quiz.append((question, [option1, option2, option3, option4], correct))
-    
-for i in range(5):
-    print(f[i].strip())
-for i in range(5, 6):
-    print(f[i].strip())
-    
-#user inputs answer
-answer = input("\nEnter the correct answer: ")
+
+if len(quiz) == 0:
+    print("No questions inputted.")
+else:
+    while True:
+        print(f"{len(quiz)} questions are available.")
+        num = int(input(f"How many questions would you like to answer? (Max: {len(quiz)}): "))
+        num = min(num, len(quiz))
 
 #check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
