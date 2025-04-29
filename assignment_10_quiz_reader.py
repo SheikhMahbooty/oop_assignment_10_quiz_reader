@@ -52,7 +52,7 @@ else:
                 
         #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
         print(f"You got {score} out of {num_questions} correct!")
-        play_again = input("Do you want to restart the quiz? (y/n): ").strip().lower()
+        play_again = input("\nDo you want to restart the quiz? (y/n): ").strip().lower()
         if play_again != "y":
             print("Thank you for playing!")
             break
