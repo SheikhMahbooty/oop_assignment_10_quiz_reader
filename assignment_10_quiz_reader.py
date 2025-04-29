@@ -3,11 +3,16 @@
 file = open("quiz_questions.txt", "r")
 f = file.readlines()
 #print the quiz questions randomly
-def ask_question(question_block):
-    # Initialize variables for the question, options, and correct answer
-    question = ""
-    options = []
-    correct_answer = ""
+quiz = []
+for i in range(0, len(f), 6):
+    if i + 5 < len(f):
+        question = f[i]
+        option1 = f[i+1]
+        option2 = f[i+2]
+        option3 = f[i+3]
+        option4 = f[i+4]
+        correct = f[i+5]
+        quiz.append((question, [option1, option2, option3, option4], correct))
     
 for i in range(5):
     print(f[i].strip())
