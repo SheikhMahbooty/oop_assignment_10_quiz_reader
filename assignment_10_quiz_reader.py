@@ -30,10 +30,11 @@ else:
             for i, opt in enumerate(q[1]):
                 print(f"{letters[i]}) {opt}")
             while True:
-                answer = input("\nEnter the correct answer (A/B/C/D): ").strip().upper()
+                answer = input("\nEnter the correct answer (a/b/c/d): ").strip().upper()
                 if answer in letters:
                     break
-                print("Invalid input. Please enter A, B, C, or D.")
+                print("Invalid input. Please enter a, b, c, or d.")
+                #check if answer is correct
             index = letters.index(answer)
             if q[1][index] == q[2]:
                 print("Correct!\n")
@@ -41,7 +42,10 @@ else:
             else:
                 print(f"Wrong! The correct answer was: {q[2]}")
         print(f"You got {score} out of {num} correct!")
+        again = input("Do you want to restart the quiz? (y/n): ").strip().lower()
+        if again != "y":
+            print("Thank you for playing")
+            break
 
-#check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
 #jump in joy
