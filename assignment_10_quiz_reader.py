@@ -7,12 +7,12 @@ f = file.readlines()
 quiz = []
 for i in range(0, len(f), 6):
     if i + 5 < len(f):
-        question = f[i]
-        option1 = f[i+1]
-        option2 = f[i+2]
-        option3 = f[i+3]
-        option4 = f[i+4]
-        correct = f[i+5]
+        question = f[i].strip()
+        option1 = f[i+1].strip()
+        option2 = f[i+2].strip()
+        option3 = f[i+3].strip()
+        option4 = f[i+4].strip()
+        correct = f[i+5].strip()
         quiz.append((question, [option1, option2, option3, option4], correct))
 
 if len(quiz) == 0:
