@@ -3,54 +3,56 @@ import random
 
 #read the text file from the original quiz creator
 file = open("quiz_questions.txt", "r")
-f = file.readlines()
+file_lines = file.readlines()
 
 #initialize the options / seperate them
-quiz = []
-for i in range(0, len(f), 6):
-    if i + 5 < len(f):
-        question = f[i].strip()
-        option1 = f[i+1].strip()
-        option2 = f[i+2].strip()
-        option3 = f[i+3].strip()
-        option4 = f[i+4].strip()
-        correct = f[i+5].strip()
-        quiz.append((question, [option1, option2, option3, option4], correct))
+quiz_data = []
+for line_index in range(0, len(file_lines), 6):
+    if line_index + 5 < len(file_lines):
+        question_text = file_lines[line_index].strip()
+        option_a = file_lines[line_index + 1].strip()
+        option_b = file_lines[line_index + 2].strip()
+        option_c = file_lines[line_index + 3].strip()
+        option_d = file_lines[line_index + 4].strip()
+        correct_answer_text = file_lines[line_index + 5].strip()
+        quiz_data.append((question_text, [option_a, option_b, option_c, option_d], correct_answer_text))
 
 #check if how many questions are inputted in the txt file
-if len(quiz) == 0:
+if len(quiz_data) == 0:
     print("No questions inputted.")
 else:
     while True:
-        print(f"{len(quiz)} questions are available.")
-        num = int(input(f"How many questions would you like to answer? (Max: {len(quiz)}): ")) #give user an option to choose how many questions
-        num = min(num, len(quiz))
+        print(f"{len(quiz_data)} questions are available.")
+        num_questions = int(input(f"How many questions would you like to answer? (Max: {len(quiz_data)}): "))
+        num_questions = min(num_questions, len(quiz_data))
         score = 0
-        asked = random.sample(quiz, num) #randomize the questions
+        selected_questions = random.sample(quiz_data, num_questions) #randomize the questions
 
         #enumarate the options 
-        for q in asked:
-            print("\n" + q[0])
-            letters = ["A", "B", "C", "D"]
-            for i, opt in enumerate(q[1]):
-                print(f"{letters[i]}) {opt}")
+        for current_question in selected_questions:
+            print("\n" + current_question[0])
+            choice_labels = ["A", "B", "C", "D"]
+
+            for index, option in enumerate(current_question[1]):
+                print(f"{choice_labels[index]}) {option}")
+
             while True:
-                answer = input("\nEnter the correct answer (a/b/c/d): ").strip().upper() #input the correct answer
-                if answer in letters:
+                user_input = input("\nEnter the correct answer (a/b/c/d): ").strip().upper()
+                if user_input in choice_labels:
                     break
-                print("Invalid input. Please enter a, b, c, or d.")
+                print("Invalid input. Please enter A, B, C, or D.")
 
             #check if answer is correct
-            index = letters.index(answer)
-            if q[1][index] == q[2]:
+            user_choice_index = choice_labels.index(user_input)
+            if current_question[1][user_choice_index] == current_question[2]:
                 print("Correct!\n")
                 score += 1
             else:
-                print(f"Wrong! The correct answer was: {q[2]}")
+                print(f"Wrong! The correct answer was: {current_question[2]}")
                 
         #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
-        print(f"You got {score} out of {num} correct!")
-        again = input("Do you want to restart the quiz? (y/n): ").strip().lower()
-        if again != "y":
-            print("Thank you for playing") #jump in joy
+        print(f"You got {score} out of {num_questions} correct!")
+        play_again = input("Do you want to restart the quiz? (y/n): ").strip().lower()
+        if play_again != "y":
+            print("Thank you for playing!")
             break
