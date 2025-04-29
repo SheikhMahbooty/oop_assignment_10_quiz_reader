@@ -6,6 +6,8 @@ f = file.readlines()
 for i in range(5):
     print(f[i].strip())
 #user inputs answer
+answer = input("\nEnter the correct answer: ")
+
 #check if answer is correct
 #once completed all the questions, print how many answers user got correct and ask if user wants to restart the quiz
 #jump in joy
